@@ -13,7 +13,48 @@ namespace Base.Lesson_5
         {
             //ArrayListExample();
 
+            ArrayListPoem();
+
             Console.ReadLine();
+        }
+
+
+        public static void ArrayListPoem()
+        {
+            ArrayList newArrList = new ArrayList();
+            for (int i = 0; i < 3; i++)
+            {
+                newArrList.Add(Console.ReadLine());
+
+                var Songs = new Song()
+                {
+                    Lyrics = Console.ReadLine()
+                };
+            }
+
+            PrintArrList(newArrList);
+
+            newArrList.Sort();
+            PrintArrList(newArrList);
+
+            newArrList.RemoveAt(newArrList.Count - 1);
+            PrintArrList(newArrList);
+
+
+/*            foreach (var row in Songs)
+            {
+
+            }
+*/
+    }
+
+        public static void PrintArrList(ArrayList tmpArr)
+        {
+            foreach (string listString in tmpArr)
+            {
+                Console.WriteLine(listString);
+            }
+            Console.WriteLine();
         }
 
 
@@ -40,13 +81,13 @@ namespace Base.Lesson_5
 
         }
 
-        public class Song
+        public class Song : IComparable
         {
-            public string Lyrics;
+            public string Lyrics { get; set; }
 
-            public override string ToString()
+            public int CompareTo(object obj)
             {
-                return this.Lyrics;
+                throw new NotImplementedException();
             }
         }
     }
