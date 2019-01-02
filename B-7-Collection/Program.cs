@@ -21,7 +21,10 @@ namespace Base.Lesson_7
 			//B7_P3();
 
 			//B7-P4/5. GenericListOfNeighborSearch:
-			B7_P4();
+			//B7_P4();
+
+			//B7-P5/5. DictionaryOfNeighborSearch:
+			B7_P5();
 
 
 			Console.ReadLine();
@@ -155,6 +158,10 @@ namespace Base.Lesson_7
 			Console.Write("Номер квартиры, на которую жалуетесь: ");
 			consoleFlat = Console.ReadLine();
 
+// Здесь .Contains не получится использовать, т.к. ему нужно передавать объект типа Neighbour
+//а мы знаем только .FlatNumber
+//			if(floorNeighbours.Contains(consoleFlat))
+
 			foreach (Neighbour tmpNeighbour in floorNeighbours)
 			{
 				if(tmpNeighbour.FlatNumber == consoleFlat)
@@ -164,6 +171,33 @@ namespace Base.Lesson_7
 				}
 			}
 			Console.WriteLine($"Такой квартиры не нашли. Проверьте ещё раз");
+		}
+
+
+		//B7-P5/5. DictionaryOfNeighborSearch:
+		public static void B7_P5()
+		{
+			int consoleFlatkey;
+			//List<Neighbour> floorNeighbours = new List<Neighbour>() { };
+
+			Dictionary<int, Neighbour> floorNeighboursDict = new Dictionary<int, Neighbour>() {};
+
+			Neighbour n1 = new Neighbour("Tony Kim", "31", "147258");
+			floorNeighboursDict.Add(Convert.ToInt32(n1.FlatNumber), n1);
+			Neighbour n2 = new Neighbour("Justin Pointer", "32", "258369");
+			floorNeighboursDict.Add(Convert.ToInt32(n2.FlatNumber), n2);
+
+			Console.Write("Номер квартиры, на которую жалуетесь: ");
+			consoleFlatkey = Convert.ToInt32(Console.ReadLine());
+
+			if(floorNeighboursDict.ContainsKey(consoleFlatkey))
+			{
+				Console.WriteLine($"Зовут {floorNeighboursDict[consoleFlatkey].FullName}, телефон {floorNeighboursDict[consoleFlatkey].PhoneNumber}. Звоните сами");
+			}
+			else
+			{
+				Console.WriteLine($"Такой квартиры не нашли. Проверьте ещё раз");
+			}
 		}
 	}
 }
