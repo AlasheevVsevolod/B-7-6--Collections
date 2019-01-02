@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Base.Lesson_5
+namespace Base.Lesson_7
 {
 	public class Song
 	{

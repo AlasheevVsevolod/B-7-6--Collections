@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Base.Lesson_5
+namespace Base.Lesson_7
 {
 	class Program
 	{
@@ -15,7 +15,10 @@ namespace Base.Lesson_5
 			//B7_P1();
 
 			//B7-P2/5. ArrayListOfSongsSort.
-			B7_P2();
+			//B7_P2();
+
+			//B7-P3/5. GenericListOfSongsSort:
+			B7_P3();
 
 
 			Console.ReadLine();
@@ -94,6 +97,45 @@ namespace Base.Lesson_5
 			Console.WriteLine();
 		}
 
+
+		//B7-P3/5. GenericListOfSongsSort:
+		public static void B7_P3()
+		{
+			List<Song> newList = new List<Song>();
+			for (int i = 0; i < 3; i++)
+			{
+				Song tmpSong = new Song()
+				{
+					Lyrics = Console.ReadLine()
+				};
+				newList.Add(tmpSong);
+			}
+			Console.WriteLine();
+
+			PrintGenericList(newList);
+
+//		А как тут сравнить списки-дженерики? Это нужно класс Song как-то изменять?
+//			newList.Sort();
+//			PrintGenericList(newList);
+
+			newList.RemoveAt(newList.Count - 1);
+			PrintGenericList(newList);
+
+			object[] newArr = newList.ToArray();
+			foreach (object item in newArr)
+			{
+				Console.WriteLine(item);
+			}
+		}
+
+		public static void PrintGenericList(List<Song> tmpList)
+		{
+			foreach (Song listSong in tmpList)
+			{
+				Console.WriteLine(listSong.Lyrics);
+			}
+			Console.WriteLine();
+		}
 
 	}
 }
