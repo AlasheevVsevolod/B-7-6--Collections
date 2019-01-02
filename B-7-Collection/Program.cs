@@ -12,7 +12,10 @@ namespace Base.Lesson_5
 		static void Main(string[] args)
 		{
 			//B7-P1/5. ArrayListPoemSort.
-			B7_P1();
+			//B7_P1();
+
+			//B7-P2/5. ArrayListOfSongsSort.
+			B7_P2();
 
 
 			Console.ReadLine();
@@ -36,6 +39,12 @@ namespace Base.Lesson_5
 
 			newArrList.RemoveAt(newArrList.Count - 1);
 			PrintArrList(newArrList);
+
+			object[] newArr = newArrList.ToArray();
+			foreach (object item in newArr)
+			{
+				Console.WriteLine(item);
+			}
 		}
 
 		public static void PrintArrList(ArrayList tmpArr)
@@ -47,39 +56,44 @@ namespace Base.Lesson_5
 			Console.WriteLine();
 		}
 
-
-
-/*		public static void ArrayListExample()
+		//B7-P2/5. ArrayListOfSongsSort.
+		public static void B7_P2()
 		{
-			var poem = new ArrayList();
-			for (int i = 0; i < 5; i++)
+			ArrayList newArrList = new ArrayList();
+			for (int i = 0; i < 3; i++)
 			{
-				var song = new Song();
-				song.Lyrics = Console.ReadLine();
-				poem.Add(song);
+				Song song = new Song()
+				{
+					Lyrics = Console.ReadLine()
+				};
+				newArrList.Add(song);
 			}
+			Console.WriteLine();
 
-			//poem.Sort();
-			poem.RemoveAt(poem.Count - 1);
+			PrintLyrics(newArrList);
 
-			object[] myArray = poem.ToArray();
+			//newArrList.Sort();
+			//PrintLyrics(newArrList);
 
-			foreach (var item in myArray)
+			newArrList.RemoveAt(newArrList.Count - 1);
+			PrintLyrics(newArrList);
+
+			object[] newArr = newArrList.ToArray();
+			foreach (var item in newArr)
 			{
 				Console.WriteLine(item);
 			}
-
 		}
 
-		public class Song : IComparable
+		public static void PrintLyrics(ArrayList tmpArr)
 		{
-			public string Lyrics { get; set; }
-
-			public int CompareTo(object obj)
+			foreach (Song tmpSong in tmpArr)
 			{
-				throw new NotImplementedException();
+				Console.WriteLine(tmpSong.Lyrics);
 			}
+			Console.WriteLine();
 		}
-		*/
+
+
 	}
 }
