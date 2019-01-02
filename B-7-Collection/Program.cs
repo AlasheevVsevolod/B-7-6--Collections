@@ -166,7 +166,8 @@ namespace Base.Lesson_7
 			{
 				if(tmpNeighbour.FlatNumber == consoleFlat)
 				{
-					Console.WriteLine($"Зовут {tmpNeighbour.FullName}, телефон {tmpNeighbour.PhoneNumber}. Звоните сами");
+					Console.WriteLine($"Зовут {tmpNeighbour.FullName}, телефон " +
+					$"{tmpNeighbour.PhoneNumber}. Звоните сами");
 					return;
 				}
 			}
@@ -192,7 +193,8 @@ namespace Base.Lesson_7
 
 			if(floorNeighboursDict.ContainsKey(consoleFlatkey))
 			{
-				Console.WriteLine($"Зовут {floorNeighboursDict[consoleFlatkey].FullName}, телефон {floorNeighboursDict[consoleFlatkey].PhoneNumber}. Звоните сами");
+				Console.WriteLine($"Зовут {floorNeighboursDict[consoleFlatkey].FullName}" +
+				$", телефон {floorNeighboursDict[consoleFlatkey].PhoneNumber}. Звоните сами");
 			}
 			else
 			{
