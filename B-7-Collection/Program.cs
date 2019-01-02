@@ -18,7 +18,10 @@ namespace Base.Lesson_7
 			//B7_P2();
 
 			//B7-P3/5. GenericListOfSongsSort:
-			B7_P3();
+			//B7_P3();
+
+			//B7-P4/5. GenericListOfNeighborSearch:
+			B7_P4();
 
 
 			Console.ReadLine();
@@ -137,5 +140,30 @@ namespace Base.Lesson_7
 			Console.WriteLine();
 		}
 
+
+		//B7-P4/5. GenericListOfNeighborSearch:
+		public static void B7_P4()
+		{
+			string consoleFlat;
+			List<Neighbour> floorNeighbours = new List<Neighbour>() {};
+
+			Neighbour n1 = new Neighbour("Тони Ким","31","147258");
+			floorNeighbours.Add(n1);
+			Neighbour n2 = new Neighbour("Джастин Поинтер", "32", "258369");
+			floorNeighbours.Add(n2);
+
+			Console.Write("Номер квартиры, на которую жалуетесь: ");
+			consoleFlat = Console.ReadLine();
+
+			foreach (Neighbour tmpNeighbour in floorNeighbours)
+			{
+				if(tmpNeighbour.FlatNumber == consoleFlat)
+				{
+					Console.WriteLine($"Зовут {tmpNeighbour.FullName}, телефон {tmpNeighbour.PhoneNumber}. Звоните сами");
+					return;
+				}
+			}
+			Console.WriteLine($"Такой квартиры не нашли. Проверьте ещё раз");
+		}
 	}
 }
